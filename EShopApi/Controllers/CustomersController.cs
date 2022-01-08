@@ -23,6 +23,7 @@ namespace EShopApi.Controllers
         }
 
         [HttpGet]
+        [ResponseCache(Duration = 60)]
         public async Task<IActionResult> GetCustomer()
         {
             var result = new ObjectResult(await _customerRepository.GetAll())
@@ -32,6 +33,7 @@ namespace EShopApi.Controllers
 
             Request.HttpContext.Response.Headers.Add("X-Count", _customerRepository.CountCustomer().ToString());
             Request.HttpContext.Response.Headers.Add("X-Name", "Navid Asadipur");
+
             return result;
         }
          

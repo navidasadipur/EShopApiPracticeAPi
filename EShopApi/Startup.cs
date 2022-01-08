@@ -38,6 +38,8 @@ namespace EShopApi
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISalesPersonRepository, SalesPersonRepository>();
+
+            services.AddResponseCaching();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +50,7 @@ namespace EShopApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseResponseCaching();
             app.UseMvc();
         }
     }
