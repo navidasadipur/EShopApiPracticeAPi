@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EShopApi", "EShopApi\EShopApi.csproj", "{291D68EF-A448-4275-BCFF-87B98FA9DEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshpApi.Test", "EshpApi.Test\EshpApi.Test.csproj", "{33879A25-A91E-4188-B163-CB4B953C1A85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{291D68EF-A448-4275-BCFF-87B98FA9DEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{291D68EF-A448-4275-BCFF-87B98FA9DEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{291D68EF-A448-4275-BCFF-87B98FA9DEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{291D68EF-A448-4275-BCFF-87B98FA9DEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33879A25-A91E-4188-B163-CB4B953C1A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33879A25-A91E-4188-B163-CB4B953C1A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33879A25-A91E-4188-B163-CB4B953C1A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33879A25-A91E-4188-B163-CB4B953C1A85}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D025EE04-A781-42EB-A476-E4ACAAAA25A7}
+	EndGlobalSection
+EndGlobal
