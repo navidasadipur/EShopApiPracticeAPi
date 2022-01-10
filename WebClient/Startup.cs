@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,22 @@ namespace WebClient
             services.AddControllersWithViews();
 
             services.AddScoped<CustomerRepository, CustomerRepository>();
+
+
+
+            services.AddHttpClient("EshopClient", client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5247");
+            });
+
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Auth/Login";
+                    options.LogoutPath = "/Auth/SignOut";
+                    options.Cookie.Name = "Auth.Coo";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,9 +58,18 @@ namespace WebClient
             }
             app.UseStaticFiles();
 
+
+
+
             app.UseRouting();
 
+
+            app.UseCookiePolicy();
+            app.UseCookiePolicy();
             app.UseAuthorization();
+
+
+
 
             app.UseEndpoints(endpoints =>
             {

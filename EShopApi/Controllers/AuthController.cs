@@ -25,7 +25,7 @@ namespace EShopApi.Controllers
                 return BadRequest("The Model Is Not Valid");
             }
 
-            if (login.UserName.ToLower() != "iman" || login.Password.ToLower() != "123")
+            if (login.UserName.ToLower() != "navid" || login.Password.ToLower() != "123")
             {
                 return Unauthorized();
             }
