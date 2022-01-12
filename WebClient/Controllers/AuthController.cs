@@ -47,7 +47,9 @@ namespace WebClient.Controllers
 
                 return View(login);
             }
+
             var token = response.Content.ReadAsAsync<TokenModel>().Result;
+
             var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier, login.UserName),

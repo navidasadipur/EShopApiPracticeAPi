@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using EShopApi.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebClient.Models;
+using WebClient.Repositories;
 
 namespace WebClient.Controllers
 {
@@ -14,9 +16,9 @@ namespace WebClient.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private CustomerRepository _customerRepository;
+        private ICustomerRepository _customerRepository;
 
-        public HomeController(ILogger<HomeController> logger, CustomerRepository customerRepository)
+        public HomeController(ILogger<HomeController> logger, ICustomerRepository customerRepository)
         {
             _logger = logger;
             _customerRepository = customerRepository;

@@ -1,3 +1,4 @@
+using EShopApi.Contracts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebClient.Models;
+using WebClient.Repositories;
 
 namespace WebClient
 {
@@ -26,7 +27,7 @@ namespace WebClient
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<CustomerRepository, CustomerRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
 
 
 
@@ -65,9 +66,8 @@ namespace WebClient
 
 
             app.UseCookiePolicy();
-            app.UseCookiePolicy();
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
 
 

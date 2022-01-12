@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Newtonsoft.Json;
 using Pluralize.NET;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,9 @@ namespace Common.Utilities
     {
         public static async Task<T> ReadAsAsync<T>(this HttpContent content)
         {
-            return await JsonSerializer.DeserializeAsync<T>(await content.ReadAsStreamAsync());
+            var contentStr = await content.ReadAsStringAsync();
+            var token = JsonConvert.DeserializeObject<T>(contentStr);
+            return token;
         }
 
     ///// <summary>
