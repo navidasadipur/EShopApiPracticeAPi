@@ -2,6 +2,7 @@ using EShopApi.Contracts;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,7 +28,7 @@ namespace WebClient
         {
             services.AddControllersWithViews();
 
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
+
 
 
 
@@ -36,6 +37,9 @@ namespace WebClient
                 client.BaseAddress = new Uri("http://localhost:5247");
             });
 
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+            services.AddHttpContextAccessor();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
