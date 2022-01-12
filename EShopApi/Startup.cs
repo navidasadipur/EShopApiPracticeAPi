@@ -16,6 +16,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.OpenApi.Models;
+using System.IO;
 
 namespace EShopApi
 {
@@ -31,6 +33,16 @@ namespace EShopApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen(swagger =>
+            {
+                swagger.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Doc",
+                    Version = "1"
+                });
+                swagger.IncludeXmlComments(Path.Combine(Directory.GetCurrentDirectory(), @"bin\Debug\netcoreapp2.1", "EShopApi.xml"));
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<EshopApi_DBContext>( options =>
@@ -82,6 +94,12 @@ namespace EShopApi
             }
 
             app.UseResponseCaching();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Eshop");
+            });
 
             app.UseCors("EnableCors");
             app.UseAuthentication();

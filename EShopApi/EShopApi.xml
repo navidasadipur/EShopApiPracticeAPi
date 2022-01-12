@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EShopApi</name>
+    </assembly>
+    <members>
+        <member name="M:EShopApi.Controllers.CustomersController.GetCustomer(System.Int32)">
+            <summary>
+            Get All Customers
+            </summary>
+            <param name="id">The Customer Id</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -14,7 +14,7 @@ namespace EShopApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CustomersController : ControllerBase
     {
         private ICustomerRepository _customerRepository;
@@ -38,7 +38,12 @@ namespace EShopApi.Controllers
 
             return result;
         }
-         
+
+        /// <summary>
+        /// Get All Customers
+        /// </summary>
+        /// <param name="id">The Customer Id</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCustomer([FromRoute] int id)
         {
